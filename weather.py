@@ -3,6 +3,7 @@
 import configparser
 import urllib.request, urllib.error
 import json
+import weather_pb2.py
 
 CONFIG_FILE_PATH='/Users/kk/work/personal/github.com/configuration/config.properties'
 SAN_JOSE_LAT='37.340576'
