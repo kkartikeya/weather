@@ -26,7 +26,7 @@ git commit -am "Pulled down update to submodule_dir"
 
 ### To compile the weather.proto
 ```
-protoc --proto_path=protos/ --python_out=. protos/weather.proto 
+protoc --proto_path=protos/ --python_out=. protos/com/kkartikeya/home/weather/weather.proto 
 ```
 
 
