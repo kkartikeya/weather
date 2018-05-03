@@ -13,7 +13,21 @@ Collect home location's Weather data and push it to Graphite through AMQP.
 
 
 
-### To Clone this project:
+### To clone this project:
 ```
 git clone --recurse-submodules git@github.com:kkartikeya/weather.git
 ```
+
+### To fetch latest commits from submodule
+```
+git submodule foreach git pull origin master
+git commit -am "Pulled down update to submodule_dir"
+```
+
+### To compile the weather.proto
+```
+protoc --proto_path=protos/ --python_out=. protos/weather.proto 
+```
+
+
+
