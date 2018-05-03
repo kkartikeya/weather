@@ -3,7 +3,7 @@
 import configparser
 import urllib.request, urllib.error
 import json
-import weather_pb2.py
+import weather_pb2
 
 CONFIG_FILE_PATH='/Users/kk/work/personal/github.com/configuration/config.properties'
 SAN_JOSE_LAT='37.340576'
@@ -41,17 +41,18 @@ def getOpenWeatherCurrentCondition():
         print(err.reason)
 
 def getCurrentWeather():
+    currentWeather=weather_pb2.Weather()
     if WeatherService=='OPENWEATHER':
         currentWeatherResponse=getOpenWeatherCurrentCondition()
         currentWeatherJson=json.loads(currentWeatherResponse)
-        print(currentWeatherJson.get('main').get('temp'))
-        print(currentWeatherJson.get('main').get('humidity'))
-        print(currentWeatherJson.get('wind').get('speed'))
-        print(currentWeatherJson.get('clouds').get('all'))
-        print(currentWeatherJson.get('dt'))
-        print(currentWeatherJson.get('sys').get('sunrise'))
-        print(currentWeatherJson.get('sys').get('sunset'))
-
+        currentWeather.timestamp=currentWeatherJson.get('dt')
+        currentWeather.temp=currentWeatherJson.get('main').get('temp')
+        currentWeather.humidity=currentWeatherJson.get('main').get('humidity')
+        currentWeather.windspeed=currentWeatherJson.get('wind').get('speed')
+        currentWeather.cloud=currentWeatherJson.get('clouds').get('all')
+        currentWeather.sunrise=currentWeatherJson.get('sys').get('sunrise')
+        currentWeather.sunset=currentWeatherJson.get('sys').get('sunset')
+        print(currentWeather.SerializeToString())
 
 def main():
     getCurrentWeather()
