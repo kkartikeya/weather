@@ -6,7 +6,7 @@ import json
 import pika
 from com.kkartikeya.home.weather.weather_pb2 import Weather
 
-CONFIG_FILE_PATH='/Users/kk/work/personal/github.com/configuration/config.properties'
+CONFIG_FILE_PATH='/opt/config/config.properties'
 SAN_JOSE_LAT='37.340576'
 SAN_JOSE_LONG='-121.894922'
 WeatherService='OPENWEATHER'  # OPENWEATHER or DARKSKY
