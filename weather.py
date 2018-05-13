@@ -45,7 +45,7 @@ def getDarkWeatherCurrentCondition():
 	print('DarkSky')
 
 def getCurrentWeather():
-	currentWeather=Weather()
+	currentWeather = Weather()
 	if WeatherService=='OPENWEATHER':
 		currentWeatherResponse=getOpenWeatherCurrentCondition()
 		currentWeatherJson=json.loads(currentWeatherResponse)
